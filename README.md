@@ -57,6 +57,6 @@ While in any development branch (e.g `main`), run `npm run serve` to run on a lo
 
 Doc files can be .md (pure markdown) or .mdx (support React components)
 
->  see [this page](./docs/get_started/get_started.mdx) to see an example of embedding React components in your pages
+>  see [this page](./docs/get_started/get_started.mdx) hosted [here](https://big-hummingbird.github.io/documentation/docs/get_started) to see an example of embedding React components in your pages
 
 (Tailwind is supported!)

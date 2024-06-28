@@ -1,5 +1,4 @@
 ---
 sidebar_position: 2
 ---
-
-# Project Stuff
+# LLM as a judge

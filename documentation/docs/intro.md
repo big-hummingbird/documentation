@@ -2,46 +2,41 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# What is BigHummingbird
+Hummingbird is a simple toolbox to help speed up your LLM projects during experimental phase so you can focus on the tweaking and not the tracking and get your models to production faster. 
 
-Let's discover **Docusaurus in less than 5 minutes**.
+## 5 minute quick start  
+It takes just a couple lines to get started. Try it on your local machine or start with one of our
+[Google Colab Quickstart](https://colab.research.google.com/drive/1bKd5OZdFtC5a1SpXvp1FxRdVsgdf9M26#scrollTo=xSAJTLv6GBGc)
 
-## Getting Started
-
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
-
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
+**Install bighummingbird python package**
 ```bash
-npm init docusaurus@latest my-website classic
+pip install bighummingbird
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+**Initialize your project**  
+:::tip[API Key]
+You can get your API_KEY at www.bighummingbird.com Workspace > Settings > Create New API Key
+:::
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
+```python
+from bighummingbird import BigHummingbird
+bhb = BigHummingbird("My awesome project", API_KEY)
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+**Decorate whichever model you want to track**  
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+```python
+@bhb.trace
+def model(input_a, input_b):
+  # Your model here
+  return output_x
+```
+This will automatically track your model function signature, outputs, and the model definition. Any changes to these attributes will automatically trigger BigHummingbird to increment your model version. 
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+**View runs and models on a dashboard**  
+
+
+## Next steps  
+- Learn how to add a custom judge with your own test dataset to evaluate your model performance. 
+- Learn how to add LLM-as-a-judge with OpenAI

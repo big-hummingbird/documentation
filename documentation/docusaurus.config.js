@@ -9,8 +9,8 @@ import tailwindPlugin from "./plugins/tailwind-config.cjs";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "big hummingbird",
-  tagline: "hum hum hum",
+  title: "Big Hummingbird",
+  tagline: "A simple tracking tool built for ML devs by ML devs",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -83,7 +83,6 @@ const config = {
             position: "left",
             label: "Tutorial",
           },
-          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/facebook/docusaurus",
             label: "GitHub",
@@ -98,8 +97,12 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Tutorial",
+                label: "Quick Start",
                 to: "/docs/intro",
+              },
+              {
+                label: "Concepts",
+                to: "/docs/concepts/run",
               },
             ],
           },
@@ -107,16 +110,8 @@ const config = {
             title: "Community",
             items: [
               {
-                label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
-              },
-              {
                 label: "Discord",
                 href: "https://discordapp.com/invite/docusaurus",
-              },
-              {
-                label: "Twitter",
-                href: "https://twitter.com/docusaurus",
               },
             ],
           },
@@ -124,17 +119,13 @@ const config = {
             title: "More",
             items: [
               {
-                label: "Blog",
-                to: "/blog",
-              },
-              {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://big-hummingbird.github.io/documentation/",
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} bighummingbird.com. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -89,7 +89,7 @@ def passing_criteria(score):
 ### Put scoring function and passing criteria together
 ```python
 judge = Judge(
-    "random-judge",
+    "random_judge",
     "This judge will return a random score between 1 to 5",
     scoring_rubric,
     passing_criteria,
@@ -133,7 +133,7 @@ def passing_criteria2(score):
     return score > 2
 
 judge = Judge(
-    "random-judge",
+    "random_judge",
     "This judge will return a random score between 1 to 5",
     scoring_rubric=scoring_rubric2,
     passing_criteria=passing_criteria2,

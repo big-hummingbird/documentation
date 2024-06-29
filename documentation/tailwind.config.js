@@ -13,6 +13,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'bhb': {
+          light: '#94ca60',
+          DEFAULT: '#70aa39',
+          dark: '#61933f',
+        },
+      },
+      fontFamily: {
+        bhb: ['Bodoni', 'serif'],
+      },
     },
   },
 };

@@ -10,7 +10,7 @@ import tailwindPlugin from "./plugins/tailwind-config.cjs";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Big Hummingbird",
-  tagline: "A simple tracking tool built for ML devs by ML devs",
+  tagline: "A simple ML track and evaluate tool built for ML devs by ML devs",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -73,8 +73,8 @@ const config = {
       navbar: {
         title: "BigHummingbird",
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: "BigHummingbird logo",
+          src: "img/bhb.png",
         },
         items: [
           {

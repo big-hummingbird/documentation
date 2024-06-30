@@ -8,6 +8,8 @@ A "dataset" is a collection of input data points, arranged in an array, used to 
 
 ## Creating a new dataset
 ```python title="dataset.py"
+from bighummingbird import BigHummingbird
+from bighummingbird.dataset import Dataset
 bhb = BigHummingbird("My customer support project", API_KEY)
 customer_questions = [
     'I recently bought a blender from your store, but it stopped working within a week. Can I get a refund?',

@@ -63,7 +63,7 @@ A `scoring_function` is a function that takes your model outputs, and give them 
 ```python
 def scoring_rubric(output):
     import random
-    return random.randint(1, 5)
+    return random.randint(1, 10)
 ```
 :::tip[Tip]
 Notice how `import random` is added within a function. This is important because we track the entire function definition and run it against the model later on. If you have any dependencies, you must import it within the function. 
@@ -76,14 +76,14 @@ In this example, the scoring rubric simply gives out a score between 1 to 5. Not
 Taken the score from `scoring_rubric`, you can define a passing or failing threshold so that you can visually see your model's performance on the dashboard. 
 ```python
 def passing_criteria(score):
-    return score > 2
+    return score > 5
 ```
 
 You can also define `passing_criteria` as a range like. Just make sure that the output is a `bool` type.
 
 ```python
 def passing_criteria(score):
-    return 1 < score and score < 5
+    return 5 < score and score < 9
 ```
 
 ### Put scoring function and passing criteria together
@@ -125,18 +125,18 @@ customer_questions = [
 test_dataset = Dataset("test_dataset", data=customer_questions, description="Customer questions")
 test_dataset_tag = bighummingbird.upload_dataset(test_dataset)
 
-def scoring_rubric2(outputs):
+def scoring_rubric(outputs):
     import random
-    return random.randint(1, 5)
+    return random.randint(1, 10)
 
-def passing_criteria2(score):
-    return score > 2
+def passing_criteria(score):
+    return score > 5
 
 judge = Judge(
     "random_judge",
-    "This judge will return a random score between 1 to 5",
-    scoring_rubric=scoring_rubric2,
-    passing_criteria=passing_criteria2,
+    "This judge will return a random score between 1 to 10",
+    scoring_rubric,
+    passing_criteria,
 )
 bhb.add_judge(judge)
 ```

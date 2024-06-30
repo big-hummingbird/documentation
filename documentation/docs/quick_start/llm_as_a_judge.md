@@ -19,9 +19,7 @@ def scoring_rubric(outputs):
     # If you have any dependencies, you must import it within the function. 
     import requests
     import re
-    from dotenv import load_dotenv
     import os
-    load_dotenv()
     url = 'https://api.openai.com/v1/completions'
     prompt = 'You are an expert in customer relations. '\
             + 'Your task is to provide a \'total rating\' scoring how well the system_answer answers the user concerns expressed in the user_question.'\

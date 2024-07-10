@@ -12,7 +12,7 @@ from bighummingbird import BigHummingbird
 from bighummingbird.dataset import Dataset
 bhb = BigHummingbird("My customer support project", API_KEY)
 customer_questions = [
-    'I recently bought a blender from your store, but it stopped working within a week. Can I get a refund?',
+    'I recently bought a blender from your store, but it stopped working within a week.',
     'I\'m having trouble installing the software I purchased. Can you help?',
     'My order was supposed to arrive last week but I haven\'t received it yet. What\'s happening?',
     'I\'m locked out of my account and can\'t reset my password. What should I do?',
@@ -33,6 +33,19 @@ python dataset.py
 
 Awesome! Whenever you see this message, it means that your dataset has been uploaded to BigHummingbird successfully and you can view it in Project > Dataset. 
 In this example, `test_dataset:v1` is called the dataset tag and it is a unique identifier to your dataset. 
+
+```python
+customer_questions = [
+    'The vacuum cleaner I bought from your website isn\'t picking up dirt properly. Can I get a replacement?',
+    'I ordered a pair of shoes but received the wrong size. How can I exchange them?',
+    'The coffee maker I purchased is leaking water from the bottom. What should I do?',
+    'I can\'t access the e-book I bought. Can you assist me with this issue?',
+    'My wireless earbuds are not connecting to my phone. Is there a troubleshooting guide available?'
+]
+dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
+dataset_tag = bighummingbird.upload_dataset(dataset)
+```
+insert another image here
 
 ## Automatic dataset tracking
 Any changes to your dataset will trigger a version update so you can easily organize and keep track. 

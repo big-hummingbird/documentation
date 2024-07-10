@@ -25,35 +25,50 @@ from bighummingbird import BigHummingbird
 bhb = BigHummingbird("Customer support project", API_KEY)
 ```
 
-### Create your dataset
+### Create a static model
+To begin with, we'll create a static model that returns the same response for any input. Let's say the model just returns "Please contact customer support.", which is not a very good response! Let's see how we can evaluate the performance of this model. 
 
+```python
+def sample_model(question):
+    # Feel free to swap this out to use your custom LLM model.
+    return {
+        "question": question,
+        "answer:: "Please contact customer support.",
+    }
+```
+
+### Create your dataset
 `Dataset` is a collection of only input data points, arranged in an array.
 
 ```python
 import bighummingbird.dataset import Dataset
 customer_questions = [
-    'I recently bought a blender from your store, but it stopped working within a week. Can I get a refund?',
+    'I recently bought a blender from your store, but it stopped working within a week.',
     'I\'m having trouble installing the software I purchased. Can you help?',
     'My order was supposed to arrive last week but I haven\'t received it yet. What\'s happening?',
     'I\'m locked out of my account and can\'t reset my password. What should I do?',
     'The air purifier I received last week is making a strange noise when it\'s on the highest setting. Should I be concerned or is this normal?'
 ]
 
-test_dataset = Dataset("test_dataset", data=customer_questions, description="Customer questions")
-test_dataset_tag = bighummingbird.upload_dataset(test_dataset)
+dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
+dataset_tag = bighummingbird.upload_dataset(dataset)
 ```
 
 ### Upload your dataset
 ```python
-test_dataset_tag = bhb.upload_dataset(test_dataset)
+dataset_tag = bhb.upload_dataset(dataset)
 ```
 
 ### View your dataset on the dashboard. 
-insert image here. 
-The value in `test_dataset_tag` will be how you reference this particular dataset. 
+Variable `dataset_tag` will be how you reference this particular dataset. In this example, it is `sample-test-dataset:v1`
+
+![dataset_image](../../static/img/dataset_table.png)
+![test_dataset_detail_modal_image](../../static/img/test_dataset_detail_modal.png)
 
 ### How the dataset is versioned?
-Any changes to the inputs, whether the value or the structure will automatically trigger a version update. 
+Any changes to the inputs, whether the value or the structure will automatically trigger a version update. Check [Dataset](../concepts/dataset.md) for more information.
+
+
 
 ## Create your own judge
 A `Judge` consists of a scoring function that assigns a numeric score to the outputs. 
@@ -89,19 +104,55 @@ def passing_criteria(score):
 ### Put scoring function and passing criteria together
 ```python
 judge = Judge(
-    "random_judge",
-    "This judge will return a random score between 1 to 5",
+    "random-judge",
+    "This judge will return a random score between 1 to 10",
     scoring_rubric,
     passing_criteria,
 )
 ```
 and add upload the judge to bighummingbird
 ```python
-bhb.add_judge(judge)
+judge_tag = bhb.add_judge(judge)
 ```
+![random_judge_detail_model](../../static/img/random_judge_detail_modal.png)
 
 ## Perfect!
-Now you can run your model and view the evaluation score on bighummingbird dashboard!
+Now we can run our model and view the evaluation score on bighummingbird dashboard!
+
+```python title="sample_model.py"
+@bhb.assess("random-judge:v1", "sample-test-dataset:v1")
+def sample_model(question):
+    return {
+        "question": question,
+        "answer": "Please contact customer support."
+    }
+    
+sample_model("I recently bought a blender from your store, but it stopped working within a week.")
+```
+Run the modal
+```bash
+python sample_model.py
+```
+
+```bash
+✔ Project set to: Customer support project
+
+=== Start of Evaluation ===
+
+✖ sample-test-dataset[0] score: 4
+✖ sample-test-dataset[1] score: 3
+✔ sample-test-dataset[2] score: 7
+✖ sample-test-dataset[3] score: 5
+✔ sample-test-dataset[4] score: 8
+
+✖ 3 out of 5 failed.
+
+=== End of Evaluation ===
+
+✔ Model sample_model:v1 uploaded.
+```
+![evaluation_detail_modal](../../static/img/evaluation_sample_detail_modal.png)
+
 :::tip[Remove assessment for production]
 Remember to remove the assessment decorator for production. Because bighummingbird will run the model against each data on your dataset, it might cause un-necessary computation and slow things down in production. 
 :::
@@ -112,18 +163,18 @@ from bighummingbird import BigHummingbird
 from bighummingbird.judge import Judge
 from bighummingbird.dataset import Dataset
 
-bhb = BigHummingbird("From local", API_KEY)
+bhb = BigHummingbird("Customer support project", API_KEY)
 
 customer_questions = [
-    'I recently bought a blender from your store, but it stopped working within a week. Can I get a refund?',
+    'I recently bought a blender from your store, but it stopped working within a week.',
     'I\'m having trouble installing the software I purchased. Can you help?',
     'My order was supposed to arrive last week but I haven\'t received it yet. What\'s happening?',
     'I\'m locked out of my account and can\'t reset my password. What should I do?',
     'The air purifier I received last week is making a strange noise when it\'s on the highest setting. Should I be concerned or is this normal?'
 ]
 
-test_dataset = Dataset("test_dataset", data=customer_questions, description="Customer questions")
-test_dataset_tag = bighummingbird.upload_dataset(test_dataset)
+dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
+dataset_tag = bhb.upload_dataset(dataset)
 
 def scoring_rubric(outputs):
     import random
@@ -133,12 +184,20 @@ def passing_criteria(score):
     return score > 5
 
 judge = Judge(
-    "random_judge",
+    "random-judge",
     "This judge will return a random score between 1 to 10",
     scoring_rubric,
     passing_criteria,
 )
-bhb.add_judge(judge)
+judge_tag = bhb.add_judge(judge)
+
+@bhb.assess(judge_tag, dataset_tag)
+def sample_model(question):
+    return {
+        "question": question,
+        "answer": "Please contact customer support."
+    }
+sample_model("This is a test question")
 ```
 ## Next steps
 - Learn how to add [LLM-as-a-judge with OpenAI](./llm_as_a_judge.md)

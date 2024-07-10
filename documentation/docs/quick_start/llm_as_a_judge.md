@@ -151,14 +151,14 @@ python model.py
 bhb = BigHummingbird("LLM as a judge", API_KEY)
 
 customer_questions = [
-    'I recently bought a blender from your store, but it stopped working within a week. Can I get a refund?',
+    'I recently bought a blender from your store, but it stopped working within a week.',
     'I\'m having trouble installing the software I purchased. Can you help?',
     'My order was supposed to arrive last week but I haven\'t received it yet. What\'s happening?',
     'I\'m locked out of my account and can\'t reset my password. What should I do?',
     'The air purifier I received last week is making a strange noise when it\'s on the highest setting. Should I be concerned or is this normal?'
 ]
 
-test_dataset = Dataset("test_dataset", data=customer_questions, description="Customer questions")
+test_dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
 test_dataset_tag = bhb.upload_dataset(test_dataset)
 
 def scoring_rubric(outputs):

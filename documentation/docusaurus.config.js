@@ -81,12 +81,7 @@ const config = {
             type: "docSidebar",
             sidebarId: "tutorialSidebar",
             position: "left",
-            label: "Tutorial",
-          },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
+            label: "Documentation",
           },
         ],
       },
@@ -111,16 +106,7 @@ const config = {
             items: [
               {
                 label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
-              },
-            ],
-          },
-          {
-            title: "More",
-            items: [
-              {
-                label: "GitHub",
-                href: "https://big-hummingbird.github.io/documentation/",
+                href: "https://discord.com/invite/sfDFaHYT",
               },
             ],
           },

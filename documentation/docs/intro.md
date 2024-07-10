@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 # What is BigHummingbird
-Hummingbird is a simple toolbox to help speed up your LLM projects during experimental phase so you can focus on the tweaking and not the tracking and get your models to production faster. 
+BigHummingbird is a simple toolbox to help speed up your LLM projects during experimental phase so you can focus on the tweaking and not the tracking and get your models to production faster. 
 
 ## 5 minute quick start  
 It takes just a couple lines to get started. Try it on your local machine or start with one of our

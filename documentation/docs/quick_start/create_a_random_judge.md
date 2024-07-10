@@ -7,7 +7,7 @@ Imagine that you're creating a model that crafts responses for customer support 
 
 ## Define your own dataset
 ### Initialize your project
-If you haven't already installed the python package from [Quick Start](../intro.md), install it now with 
+**Install bighummingbird python package**
 ```bash
 pip install bighummingbird
 ```

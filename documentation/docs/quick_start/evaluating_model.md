@@ -26,14 +26,14 @@ bhb = BigHummingbird("Customer support project", API_KEY)
 ```
 
 ### Create a static model
-To begin with, we'll create a static model that returns the same response for any input. Let's say the model just returns "Please contact customer support.", which is not a very good response! Let's see how we can evaluate the performance of this model. 
+To begin with, we'll create a static model that returns the same response for any input. Let's say the model just returns "What do you mean?", which is not a very good response! Let's see how we can evaluate the performance of this model. 
 
 ```python
 def sample_model(question):
     # Feel free to swap this out to use your custom LLM model.
     return {
         "question": question,
-        "answer:: "Please contact customer support.",
+        "answer:: "What do you mean?",
     }
 ```
 
@@ -124,7 +124,7 @@ Now we can run our model and view the evaluation score on bighummingbird dashboa
 def sample_model(question):
     return {
         "question": question,
-        "answer": "Please contact customer support."
+        "answer": "What do you mean?"
     }
     
 sample_model("I recently bought a blender from your store, but it stopped working within a week.")
@@ -195,7 +195,7 @@ judge_tag = bhb.add_judge(judge)
 def sample_model(question):
     return {
         "question": question,
-        "answer": "Please contact customer support."
+        "answer": "What do you mean?"
     }
 sample_model("This is a test question")
 ```

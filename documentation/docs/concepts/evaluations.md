@@ -1,10 +1,7 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Evaluations
 
-An "evaluation" is similar to a run and is created when the @assess decorator is called. 
-It involves running a judge's scoring function through all the data points in a dataset.
-
-## Creating a new evaluation
+An evaluation is the assessment of a model's performance against a predefined [dataset](./dataset.md) following a [judge](./judge.md)'s scoring function to measure its accuracy.

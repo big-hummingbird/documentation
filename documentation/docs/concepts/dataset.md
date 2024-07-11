@@ -45,8 +45,16 @@ customer_questions = [
 dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
 dataset_tag = bighummingbird.upload_dataset(dataset)
 ```
-insert another image here
+![dataset_detail](../../static/img/dataset_detail.png)
 
 ## Automatic dataset tracking
-Any changes to your dataset will trigger a version update so you can easily organize and keep track. 
+### Dataset Detection
+- **New Dataset**: If the dataset is new, BigHummingbird will automatically create it for you.
+- **Existing Dataset**: If the dataset already exists, BigHummingbird will recognize it and won't create a duplicate.
+
+## Dataset Tagging
+- Each dataset is assigned a unique identifier called the **Dataset Tag**
+- The format for a Dataset Tag is `{dataset_name}:{version}`
+- Dataset tags are unique to each project, ensuring that each dataset can be distinctly identified within its respective project.
+- If the `{dataset_name}` is updated, a new dataset tag will be created and start from version: `v1`
 

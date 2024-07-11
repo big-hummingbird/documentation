@@ -1,10 +1,21 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # Judge
 
-A "judge" consists of a scoring function that assigns a numeric score to the outputs. 
-You can also optionally include a passing function, which defines the range of scores that are considered "passing" for your specific use case. This helps you better interpret the results and identify any errors. 
+A judge component evaluates a single output or a set of outputs using a scoring function, assigning them a numeric score. Additionally, you can include an optional passing function, which specifies the score range deemed "passing" for your particular use case. Judge components can be used in [runs](./run.md) and [evaluations](./evaluations.md)
 
-## Creating a new judge
+**Judge(name, description, scoring_rubric, passing_criteria)**
+
+**Parameters**:
+- **name: `string`**
+    - Description: The name of the judge.
+- **description: `string`**
+    - Description: A brief description of what the judge evaluates.
+- **scoring_rubric: `function`**
+    - Description: A function that takes input and returns either an **integer** or **float** as the score.
+- **passing_criteria: `function`**
+    - Description: An optional function that takes a score and returns a **boolean** indicating whether the score is considered passing.
+
+See [Evaluating model](../quick_start/evaluating_model.md) and [LLM as a judge](../quick_start/llm_as_a_judge.md) for examples on how to use a judge component.

@@ -27,6 +27,7 @@ bhb = BigHummingbird("My awesome project", API_KEY)
 **Decorate whichever model you want to track**  
 
 ```python title="model.py"
+# Add the trace decorator
 @bhb.trace
 def model(input_a, input_b):
   # Your model here
@@ -50,6 +51,7 @@ This will automatically track your model function signature, outputs, and the mo
 
 Let's take a look at an example and update our model. 
 ```python
+# Add the trace decorator
 @bhb.trace
 def model(input_a, input_b):
   return input_a - input_b # addition changed into subtraction

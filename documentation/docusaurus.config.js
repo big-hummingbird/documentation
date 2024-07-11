@@ -10,7 +10,7 @@ import tailwindPlugin from "./plugins/tailwind-config.cjs";
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Big Hummingbird",
-  tagline: "A simple ML track and evaluate tool built for ML devs by ML devs",
+  tagline: "A simple ML tracking and evaluation tool built for ML developers",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -112,8 +112,8 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} bighummingbird.com. Built with Docusaurus.`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.oneLight,
+        darkTheme: prismThemes.oneDark,
       },
     }),
 };

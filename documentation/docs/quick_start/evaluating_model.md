@@ -41,7 +41,7 @@ def sample_model(question):
 `Dataset` is a collection of only input data points, arranged in an array.
 
 ```python
-import bighummingbird.dataset import Dataset
+from bighummingbird.dataset import Dataset
 customer_questions = [
     'I recently bought a blender from your store, but it stopped working within a week.',
     'I\'m having trouble installing the software I purchased. Can you help?',
@@ -51,7 +51,7 @@ customer_questions = [
 ]
 
 dataset = Dataset("sample-test-dataset", data=customer_questions, description="Customer questions")
-dataset_tag = bighummingbird.upload_dataset(dataset)
+dataset_tag = bhb.upload_dataset(dataset)
 ```
 
 ### Upload your dataset
@@ -84,7 +84,7 @@ def scoring_rubric(output):
 Notice how `import random` is added within a function. This is important because we track the entire function definition and run it against the model later on. If you have any dependencies, you must import it within the function. 
 :::
 
-In this example, the scoring rubric simply gives out a score between 1 to 5. Not very helpful in evaluating our model, but this fine for our demo purpose. To see how we could use LLM-as-a-judge to evaluate our model, see [LLM-as-a-judge with OpenAI](./llm_as_a_judge.md)
+In this example, the scoring rubric simply gives out a score between 1 to 10. Not very helpful in evaluating our model, but this fine for our demo purpose. To see how we could use LLM-as-a-judge to evaluate our model, see [LLM-as-a-judge with OpenAI](./llm_as_a_judge.md)
 
 ### Define your passing criteria (optional)
 
@@ -103,6 +103,7 @@ def passing_criteria(score):
 
 ### Put scoring function and passing criteria together
 ```python
+from bighummingbird.judge import Judge
 judge = Judge(
     "random-judge",
     "This judge will return a random score between 1 to 10",

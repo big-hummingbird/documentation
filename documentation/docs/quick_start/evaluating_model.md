@@ -154,10 +154,6 @@ python sample_model.py
 ```
 ![evaluation_detail_modal](../../static/img/evaluation_sample_detail_modal.png)
 
-:::tip[Remove assessment for production]
-Remember to remove the assessment decorator for production. Because bighummingbird will run the model against each data on your dataset, it might cause un-necessary computation and slow things down in production. 
-:::
-
 ## Putting everything together
 ```python
 from bighummingbird import BigHummingbird

@@ -14,7 +14,7 @@ pip install bighummingbird
 In your python code, create an instance of `Bighummingbird`. 
 
 :::tip[API Key]
-You can get your API_KEY at www.bighummingbird.com Workspace > Settings > Create New API Key
+You can get your API_KEY at www.bighummingbird.com/settings
 :::
 :::tip[Don't want to expose your API_KEYs?]
 You can store your API_KEYs in your local `.env` file for security. See securely store your API_KEYs for more information.

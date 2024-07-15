@@ -16,7 +16,7 @@ pip install bighummingbird
 
 **Initialize your project**  
 :::tip[API Key]
-You can get your API_KEY at www.bighummingbird.com Workspace > Settings > Create New API Key
+You can get your API_KEY at www.bighummingbird.com/settings
 :::
 
 ```python

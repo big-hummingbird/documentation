@@ -22,7 +22,7 @@ You can store your API_KEYs in your local `.env` file for security. See securely
 
 ```python
 from bighummingbird import BigHummingbird
-bhb = BigHummingbird("Customer support project", API_KEY)
+bhb = BigHummingbird(API_KEY)
 ```
 
 ### Create a static model
@@ -160,7 +160,7 @@ from bighummingbird import BigHummingbird
 from bighummingbird.judge import Judge
 from bighummingbird.dataset import Dataset
 
-bhb = BigHummingbird("Customer support project", API_KEY)
+bhb = BigHummingbird(API_KEY)
 
 customer_questions = [
     'I recently bought a blender from your store, but it stopped working within a week.',

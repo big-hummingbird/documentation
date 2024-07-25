@@ -21,7 +21,7 @@ You can get your API_KEY at www.bighummingbird.com/settings
 
 ```python
 from bighummingbird import BigHummingbird
-bhb = BigHummingbird("My awesome project", API_KEY)
+bhb = BigHummingbird(API_KEY)
 ```
 
 **Decorate whichever model you want to track**  

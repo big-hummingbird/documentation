@@ -7,7 +7,7 @@ BigHummingbird is a simple toolbox to help speed up your LLM projects during exp
 
 ## 5 minute quick start  
 It takes just a couple lines to get started. Try it on your local machine or start with one of our
-[Google Colab Quickstart](https://colab.research.google.com/drive/1bKd5OZdFtC5a1SpXvp1FxRdVsgdf9M26#scrollTo=xSAJTLv6GBGc)
+[Google Colab Quickstart](https://colab.research.google.com/drive/1A7v-opSGYT7nlTVX0LFNRcYKZekaRlV9?usp=sharing)
 
 **Install bighummingbird python package**
 ```bash

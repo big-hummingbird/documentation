@@ -69,9 +69,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "BigHummingbird",
+        title: "Big Hummingbird",
         logo: {
-          alt: "BigHummingbird logo",
+          alt: "Big Hummingbird logo",
           src: "img/bhb.png",
         },
         items: [

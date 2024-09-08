@@ -1,38 +1,30 @@
 ---
-sidebar_position: 6
+sidebar_position: 3
 ---
-
 # Evaluations
 
-Evaluations play a critical role in assessing the performance of a model against a predefined dataset. By systematically measuring a model's accuracy, we can gain valuable insights into its strengths and areas for improvement. In this section, we will guide you through the process of creating and understanding evaluations in our system.
+### Evaluating the LLM
+One of the key features of Big Hummingbird is the ability to incorporate human feedback in evaluating the effectiveness of your AI-generated outputs. 
 
-## Creating an Evaluation
-Evaluations are created using the `@bhb.assess` decorator. This decorator requires 2 parameters.
-- `judge_tag`: the tag identifying the judge's scoring function
-- `dataset_tag`: the tag identifying the dataset to be used for the evaluation
+### Create an Evaluation Card
 
-### Example Usage
-To create an evaluation, simply call the `@bhb.assess` decorator with the appropriate tags:
+In the `Human Review` section, you can set up review criteria for the prompt. Evaluation cards allow you to define specific questions regarding "Conciseness", "Relevance", or "Tone", and provide a rating scale (from 1 to 5 stars) or True/False. 
 
-```python
-@bhb.assess(judge_tag='accuracy_scoring_judge:v1', dataset_tag='validation_set:v2')
-def model():
-    # Your model implementation here
-    pass
-model()
-```
-In this example, the evaluation uses the `accuracy_scoring_judge:v1` as the judge and the `validation_set` as the dataset. 
-:::tip[Evaluation]
-Evaluation are only calculated and created when you make a call to a model.
-:::
+![evaluation card](../../static/img/quick_start/human_review.png)
 
-## Understanding Evaluations
-An evaluation measures how well a model performs against a predefined dataset by using a [judge component](./judge.md). This process involves comparing the model's predictions to the actual values in the dataset and calculating a performance score. 
+For our example, we'll include the following questions: 
+- Brand Messaging: Does the email align with EcoNest’s mission of creating sustainable home products?
+- Subject Line Effectiveness: Does the subject line grab your attention and make you want to open the email? Rate from 1-5.
 
-### Components of an Evaluation 
-1. **Judge component (`judge_tag`)**: this function defines the criteria for measuring the model's performance. You can also optionally include a passing function. Common scoring functions include accuracy, precision, recall, and F1-score. 
-2. **Dataset(`dataset_tag`)**: the [dataset](./dataset.md) is a collection of data points used to evaluate the model. It typically includes input features and corresponding true labels. The `dataset_tag` parameter identifies which dataset to use for the evaluation.
+### Invite Human Reviewers 
 
-### Viewing Evaluation Results
-To view the results fo an evaluation, make a call to your model with the decorator and BigHummingbird will generate a detail link to the evaluation and take you to the dashboard. 
-![evaluation_detail](../../static/img/evaluation_detail.png)
+You can invite team members or domain experts to review prompt outputs. Human reviewers will score the output based on the criteria defined in the valuation card, providing qualitative feedback. 
+
+What your reviewers see.
+![check generate output](../../static/img/quick_start/check_generate_output.png)
+
+![give feedback](../../static/img/quick_start/give-feedback.png)
+
+### Review Feedback
+
+After the human reviewers have completed their assessments, you can see their ratings and comments. This feedback is crucial for refining your prompts and ensuring that the outputs meet your project's goals. 

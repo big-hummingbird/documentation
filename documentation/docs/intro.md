@@ -2,64 +2,115 @@
 sidebar_position: 1
 ---
 
-# What is BigHummingbird
-BigHummingbird is a simple toolbox to help speed up your LLM projects during experimental phase so you can focus on the tweaking and not the tracking and get your models to production faster. 
+# What is Big Hummingbird
+Big Hummingbird is a LLM platform born from the need to help software engineers develop LLM applications with best practices in mind. It streamlines everything from prompt management and engineering to evaluating and deploying LLM applications.
 
-## 5 minute quick start  
-It takes just a couple lines to get started. Try it on your local machine or start with one of our
-[Google Colab Quickstart](https://colab.research.google.com/drive/1A7v-opSGYT7nlTVX0LFNRcYKZekaRlV9?usp=sharing)
+# 5 minute quick start
+First, [sign in](https://www.bighummingbird.com/signin) or [create a new account](https://www.bighummingbird.com/signin) if you haven't already. 
 
-**Install bighummingbird python package**
-```bash
-pip install bighummingbird
+Once you're logged in, it's time to set up a new engine. The engine will serve as your workspace, where you'll iterate on prompts and manage deployments for your projects.
+
+In this engine, we'll craft a prompt for an AI email marketing assistant. Here's how to set it up:
+### Step-by-Step
+
+
+#### 1. Create a new engine on your dashboard and in the engine area, create the following prompt messages
+
+- **Role**: System
+- **Message**:
+```text
+You are an AI email marketing assistant. Your goal is to help 
+craft compelling and personalized email campaigns that engage the target 
+audience, with a focus on {goal}. You should provide a subject line, 
+body copy, and call-to-action for the email. Make sure the emails are clear, 
+concise, action-oriented, and align with our company brand. 
+
+Our company brand: EcoNest is dedicated to creating sustainable and 
+eco-friendly home products that contribute to a healthier planet.
 ```
 
-**Initialize your project**  
-:::tip[API Key]
-You can get your API_KEY at www.bighummingbird.com/settings
+- **Role**: User
+- **Message**:
+```text
+I need an email campaign targeting our {target audience}.
+The campaign should promote our {product name}.
+```
+
+![Engine](../static/img/quick_start/quick_start_engine.png)
+
+Notice how we've used `{goal}` in the message itself. These variables are optional and are designed to help you parameterize your messages for greater flexibility and reusability. 
+
+:::tip[message roles]
+For more information on how to choose `role`s, see [message roles](./concepts/engine.md#prompt-section)
 :::
 
-```python
-from bighummingbird import BigHummingbird
-bhb = BigHummingbird(API_KEY)
-```
 
-**Decorate whichever model you want to track**  
+#### 2. Configure your model (optional)
 
-```python title="model.py"
-# Add the trace decorator
-@bhb.trace
-def model(input_a, input_b):
-  # Your model here
-  # GPT-4 text generation
-  # summarization
-  # translation
-  # sentiment analysis
-  return input_a + input_b
+At this stage, you can also configure the model's parameters to fine-tune its behavior.
 
-model(1, 2)
-```
+![model choice](../static/img/selectmodel.png)
 
-```bash
-python model.py
-```
-**View runs and models on a dashboard**  
-![run_table](../static/img/run_table.png)
-![model_detail_v1](../static/img/model_detail_v1.png)
+![model hyperparameters](../static/img/hyperparameters.png)
 
-This will automatically track your model function signature, outputs, and the model definition. Any changes to these attributes will automatically trigger BigHummingbird to increment your model version. 
 
-Let's take a look at an example and update our model. 
-```python
-# Add the trace decorator
-@bhb.trace
-def model(input_a, input_b):
-  return input_a - input_b # addition changed into subtraction
-model(1, 2)
-```
-![model_detail_v2](../static/img/model_detail_v2.png)
-Notice how the model is now updated to `v2`. This is a model tag that you can reference at any time. This will come in handy when we want to pull out previous models and evaluate their performance before checking in our code.
+#### 3. Run your prompt through the model
 
-## Next steps  
-- Learn how to add a custom judge with your own test dataset to [evaluate your model performance](./quick_start/evaluating_model.md). 
-- Learn how to add [LLM-as-a-judge with OpenAI](./quick_start/llm_as_a_judge.md)
+Click on `run` and observe the output. 
+
+### Manage prompts
+In Big Hummingbird, managing prompts is simple and designed to help you stay organized while experimenting and iterating. 
+
+**Edit Existing Prompts**: You can easily update your prompts as you iterate. All *runs* (whenever you click on run) are versioned. Each version contains the prompt message, selected model, and corresponding model hyperparamters so you can easily track what worked and what didn't work. 
+
+Big Hummingbird also automatically tracks the lineage of your draft engine state if you haven't "run" the model yet. 
+
+![version](../static/img/versionSection.png)
+
+
+### Evaluating the LLM
+One of the key features of Big Hummingbird is the ability to incorporate human feedback in evaluating the effectiveness of your AI-generated outputs. 
+
+#### 1. Setting up Evaluation Cards
+In the `Human Review` section, you can set up review criteria for the prompt. Evaluation cards allow you to define specific questions regarding "Conciseness", "Relevance", or "Tone", and provide a rating scale (from 1 to 5 stars) or True/False. 
+
+![evaluation card](../static/img/quick_start/human_review.png)
+
+For our example, we'll include the following questions: 
+- *Brand Messaging: Does the email align with EcoNest’s mission of creating sustainable home products? True/False*
+- *Subject Line Effectiveness: Does the subject line grab your attention and make you want to open the email? Rate from 1-5.*
+
+#### 2. Invite your team, domain experts, or your users: 
+You can invite team members or domain experts to review prompt outputs. Reviewers will score the output based on the criteria defined in the valuation card, providing qualitative feedback. 
+
+What your reviewers see.
+![check generate output](../static/img/quick_start/check_generate_output.png)
+
+![give feedback](../static/img/quick_start/give-feedback.png)
+
+#### 3. Review Feedback: 
+After your reviewers have completed their assessments, you can see their ratings and comments. This feedback is crucial for refining your prompts and ensuring that the outputs meet your project's goals. 
+
+
+### Deploying the LLM
+Once you've fine-tuned your prompt and it's performing to your satisfaction, the next step is to deploy it, making your language model available via a REST API. Big Hummingbird streamlines the deployment process, allowing you to turn your prompts into production-ready endpoints in just a few step. 
+
+## Select a run for deployment
+A run includes the prompt messages and model configurations (model + model hyperparameter).
+
+![deployment select run](../static/img/deployment_select_run.png)
+
+Once you've selected a run, click on `Launch`.
+
+![launch](../static/img/launch.png)
+
+Once your deployment succeeds, you can see your service up and running.
+
+![current deployment](../static/img/currentDeployment.png)
+
+## Sending post requests
+
+And that's it! Your prompt messages along with model configurations are available at the service url. You can now send a POST request to the `/generate` endpoint. 
+For more details, check out [Deployment](./concepts/deployment.md#sending-post-requests)
+
+

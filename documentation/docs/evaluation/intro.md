@@ -1,7 +1,7 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
-# Evaluations
+# Understanding Evaluations
 
 ### Evaluating the LLM
 One of the key features of Big Hummingbird is the ability to incorporate human feedback in evaluating the effectiveness of your AI-generated outputs. 

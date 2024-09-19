@@ -90,12 +90,8 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Quick Start",
-                to: "/docs/intro",
-              },
-              {
-                label: "Concepts",
-                to: "/docs/concepts/engine",
+                label: "Quick start",
+                to: "/docs/get_started/intro",
               },
             ],
           },

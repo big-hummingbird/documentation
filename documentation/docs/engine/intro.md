@@ -41,3 +41,8 @@ All changes made without clicking on `Run` will also be saved as draft. You can 
 :::tip[prompt management]
 Prompt management is all about keeping your prompts organized, versioned, and continuously improving to get the best results from your AI. While Git is great for tracking code, it doesn't cover everything - like the actual inputs, outputs, or how well your prompts are performing. With prompt management, you're not just managing code; you're tracking tweaks, evaluating results, and refining prompts based on real feedback. See blog post for more details. 
 :::
+
+---
+
+Talk about EngineStates and how they are versioned. 
+In the deployment section, talk about how each engineState is deployed

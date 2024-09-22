@@ -22,17 +22,16 @@ const sidebars = {
       collapsed: false,
       items: [
         "get_started/intro",
-        "get_started/key_concepts",
-        "get_started/rag_chat",
+        // "get_started/rag_chat",
       ],
     },
-    {
-      type: "category",
-      label: "Workspace",
-      collapsible: true,
-      collapsed: false,
-      items: ["workspace/intro", "workspace/connection"],
-    },
+    // {
+    //   type: "category",
+    //   label: "Workspace",
+    //   collapsible: true,
+    //   collapsed: false,
+    //   items: ["workspace/intro", "workspace/connection"],
+    // },
     {
       type: "category",
       label: "Engine",
@@ -43,7 +42,7 @@ const sidebars = {
         "engine/chat_session",
         "engine/messages",
         "engine/variables",
-        "engine/rag",
+        // "engine/rag",
       ],
     },
     {

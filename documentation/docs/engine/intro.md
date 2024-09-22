@@ -2,47 +2,78 @@
 sidebar_position: 3
 ---
 
-# Engine
-Welcome to the Engine, your main workspace for managing prompts! It’s designed to keep everything organized and accessible with four key sections: prompts, inputs, model configuration, and outputs.
+# Key Concepts
 
-The engine contains 4 main sections:
-- prompts
-- inputs
-- model configuration
-- outputs
+Welcome to the Engine, your main workspace for managing prompts! It's designed to keep everything organized and accessible with four key sections: **Prompt, Model, Versions, Chat Sessions** and **Additional Configuration**. This guide will walk you through each section,
 
-## Prompt Section
+--- 
 
+### The Engine's five main sections
+- **Prompt**
+- **Model**
+- **Chat Sessions**
+- **Versions**
+- **Additional Configuration**
+    - **Variables**
 
-See best practices with crafting prompts here. 
+--- 
 
+## 1. Prompt
 
-## Inputs Section
-Variables that are entered in the prompt message section with `{variable}` will show up in this section. 
+The Prompt Section is where you create and manage prompts that guide the model's behavior. This section allows you to write and organize your prompts efficiently for reuse. You can also customize prompts by integrating variables that will adjust the model based on other sources of information.
 
-## Model Configuration
-You can choose the model that you want and set the model hyperparameters. Check [A visual explanation of LLM hyperparameters] to understand how to refine your prompt. 
+### Features
+- Create new prompts or edit existing ones. 
+- View the history of prompt.
 
-![select model](../../static/img/selectmodel.png)
-![hyperparaterms](../../static/img/hyperparameters.png)
+--- 
 
+## 2. Model
+The Model section allows you to select and configure the large language model (LLM) used to execute your prompts. You can choose from a range of models, each with different capabilities and configurations. Additionally, you can adjust the model's hyperparameters to refine how the model generates responses based on your prompts. 
 
-## Output Section
-Click on `Run` to run your prompt messages against the selected model and model hyperparameters. 
-![output section](../../static/img/run.png)
+### Options
+- **Model Selection**: Choose the appropriate model for your task. 
+- **Hyperparameters**: Adjust hyperparameters like temperature, max tokens, and more to fine-tune the model's behavior. 
 
-## Version Section
-Every `Run` is versioned and will show up on the left side of the bar. Big Hummingbird automatically tracks the prompt, model, and model hyperparameters so you can revert your changes and know what worked and what didn't work. 
-
-![Version section](../../static/img/versionSection.png)
-
-All changes made without clicking on `Run` will also be saved as draft. You can use the hash code to keep track of version your draft is based on.
-
-:::tip[prompt management]
-Prompt management is all about keeping your prompts organized, versioned, and continuously improving to get the best results from your AI. While Git is great for tracking code, it doesn't cover everything - like the actual inputs, outputs, or how well your prompts are performing. With prompt management, you're not just managing code; you're tracking tweaks, evaluating results, and refining prompts based on real feedback. See blog post for more details. 
-:::
+### Further Reading
+- [Prompt Engineering Best Practices](https://www.bighummingbird.com/blogs/prompt-engineering-best-practices)
+- [A Visual Explanation of LLM Hyperparameters](https://www.bighummingbird.com/blogs/llm-hyperparameter)
 
 ---
 
+## 3. Chat Sessions
+
+A Chat Session is a distinct instance. To test out your prompt and model setup, click on `create new chat session". Check out [Chat Session](./chat_session.md) for more details.
+
+---
+
+## 4. Version
+Versions int he engine refer to different iterations of your prompt and model setup. Each version includes updates to prompts, model and additional configurations like variables. By creating new versions, you can experiment with different prompt strategies without affecting previous setups. 
+
+:::tip[prompt management]
+Prompt management is all about keeping your prompts organized, versioned, and continuously improving to get the best results from your AI. While Git is great for tracking code, it doesn't cover everything - like the actual inputs, outputs, or how well your prompts are performing. With prompt management, you're not just managing code; you're tracking tweaks, evaluating results, and refining prompts based on real feedback. 
+:::
+
+### Further Reading
+- [Why is Git not enough for prompt management?](https://www.bighummingbird.com/blogs/why-should-you-bother-with-prompt-versioning) 
+
+---
+
+
+## 5. Additional Configuration
+
+### Variables
+In the Variables Section, any placeholders (e.g., `{variable}`) used in your prompt will automatically appear. This allows you to quickly input or modify the values you want to be replaced during the prompt execution or chat session creation. Variables make prompts more dynamic and adaptable by allowing you to use different data without altering the core structure of the prompt. 
+
+#### How to use
+- Define variables inside the prompt using curly braces `{}`
+- The system will recognize and list them in this section. 
+- Input values for each variable, which will replace the placeholders during prompt execution. 
+
+See [chat session](./chat_session.md) for examples on how variables can be used. 
+
+---
+
+## Engine State
 Talk about EngineStates and how they are versioned. 
 In the deployment section, talk about how each engineState is deployed

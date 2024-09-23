@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
 ---
-# Quick start
+# Quick Start
 Big Hummingbird is a LLM platform born from the need to help software engineers develop LLM applications with best practices in mind. It streamlines everything from prompt management and engineering to evaluating and deploying LLM applications.
 
-# Quick Start
+
 First, [sign in](https://www.bighummingbird.com/signin) or [create a new account](https://www.bighummingbird.com/signin) if you haven't already. 
 
 Once you're logged in, it's time to set up a new engine. The engine will serve as your workspace, where you'll iterate on prompts and manage deployments for your projects.

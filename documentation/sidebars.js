@@ -20,10 +20,7 @@ const sidebars = {
       label: "Get Started",
       collapsible: true,
       collapsed: false,
-      items: [
-        "get_started/intro",
-        // "get_started/rag_chat",
-      ],
+      items: ["get_started/intro", "get_started/rag_chat"],
     },
     // {
     //   type: "category",

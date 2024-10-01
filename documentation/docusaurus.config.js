@@ -63,7 +63,17 @@ const config = {
     ],
   ],
 
-  plugins: [tailwindPlugin],
+  plugins: [
+      tailwindPlugin,
+      [
+        "posthog-docusaurus",
+        {
+          apiKey: "phc_i4GHkIW55yWlQyPnXhAUMglcvpzfB8MRdcslhoDHRhY",
+          appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
+          enableInDevelopment: false, // optional
+        },
+      ],
+    ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

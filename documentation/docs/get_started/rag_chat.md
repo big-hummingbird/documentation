@@ -20,6 +20,10 @@ Here's how RAG makes it possible:
 ## Let's Get Started!
 Now that you understand how RAG works, we'll guide you through creating the sample records for LumiAI and setting up the retriever and generator components. By the end of this tutorial, you'll have a working chatbot that can handle questions about LumiAI, showcasing the power of Retrieval-Augmented Generation in action.
 
+First, [sign in](https://www.bighummingbird.com) or [create a new account](https://www.bighummingbird.com) if you haven't already.
+
+Once you're logged in, it's time to set up a new engine. The engine will serve as your workspace, where you'll iterate on prompts and manage deployments for your projects.
+
 ## Prep your vector database (with Pinecone)
 ### 1. Set up your environment
 

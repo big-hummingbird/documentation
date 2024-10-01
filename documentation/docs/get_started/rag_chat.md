@@ -1,6 +1,13 @@
 # Build a RAG Chat
 
-## How it works
+<iframe
+  allow="fullscreen"
+  src="https://player.vimeo.com/video/1014914526?badge=0&transparent=1&autopause=0&player_id=0&app_id=58479&controls=0&autoplay=1&loop=1&muted=1"
+  className="h-[600px] w-full"
+  title="Develop Segment Video"
+></iframe>
+
+## How does it work
 Retrieval-Augmented Generation (RAG) is a method that boosts language models by combining them with an external knowledge base, making responses more accurate and relevant. 
 
 To illustrate how this works, let's imagine we're building a chatbot for a fictional product called LumiAI. Even though LumiAI doesn't exist in the model's training data, we can make our chatbot respond effectively by adding specific information about it.

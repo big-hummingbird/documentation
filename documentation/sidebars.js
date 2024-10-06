@@ -56,6 +56,13 @@ const sidebars = {
       collapsed: false,
       items: ["deployment/intro", "deployment/endpoint_specs"],
     },
+    {
+      type: "category",
+      label: "Best Practices",
+      collapsible: true,
+      collapsed: false,
+      items: ["best_practices/environment"],
+    },
   ],
 
   // But you can create a sidebar manually

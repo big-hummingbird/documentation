@@ -64,16 +64,16 @@ const config = {
   ],
 
   plugins: [
-      tailwindPlugin,
-      [
-        "posthog-docusaurus",
-        {
-          apiKey: "phc_i4GHkIW55yWlQyPnXhAUMglcvpzfB8MRdcslhoDHRhY",
-          appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
-          enableInDevelopment: false, // optional
-        },
-      ],
+    tailwindPlugin,
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: "phc_i4GHkIW55yWlQyPnXhAUMglcvpzfB8MRdcslhoDHRhY",
+        appUrl: "https://us.i.posthog.com", // optional, defaults to "https://us.i.posthog.com"
+        enableInDevelopment: false, // optional
+      },
     ],
+  ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -115,7 +115,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} bighummingbird.com. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Big Hummingbird.`,
       },
       prism: {
         theme: prismThemes.oneLight,

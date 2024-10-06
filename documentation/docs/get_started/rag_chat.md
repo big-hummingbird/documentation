@@ -13,7 +13,6 @@ Here's how RAG makes it possible:
 2. **Generator**: Once the relevant information about LumiAI is retrieved, the generator (a language model) uses it to create a detailed response. This means if someone asks about LumiAI, the chatbot grounds its answer in the added context, resulting in accurate and informative replies—even for a product that wasn't originally in its training data. 
 
 
-
 ## Let's Get Started!
 Now that you understand how RAG works, we'll guide you through creating the sample records for LumiAI and setting up the retriever and generator components. By the end of this tutorial, you'll have a working chatbot that can handle questions about LumiAI, showcasing the power of Retrieval-Augmented Generation in action.
 

@@ -1,11 +1,6 @@
 # Build a RAG Chat
 
-<iframe
-  allow="fullscreen"
-  src="https://player.vimeo.com/video/1014914526?badge=0&transparent=1&autopause=0&player_id=0&app_id=58479&controls=0&autoplay=1&loop=1&muted=1"
-  className="h-[600px] w-full"
-  title="Develop Segment Video"
-></iframe>
+![rag chat bot](../../static/img/get_started/rag_chat/rag_chat_bot.png)
 
 ## How does it work
 Retrieval-Augmented Generation (RAG) is a method that boosts language models by combining them with an external knowledge base, making responses more accurate and relevant. 
@@ -16,6 +11,8 @@ Here's how RAG makes it possible:
 1. **Retriever**: The retriever fetches useful information from a knowledge base or document storage. For our LumiAI example, we add records that describe the product's features and capabilities. A vector database stores this information as embeddings—numerical representations that capture the essence of the content. The embeddings are created using an embedding model and allow the retriever to quickly find information that matches a user's query, like "What are LumiAI's main features?".
 
 2. **Generator**: Once the relevant information about LumiAI is retrieved, the generator (a language model) uses it to create a detailed response. This means if someone asks about LumiAI, the chatbot grounds its answer in the added context, resulting in accurate and informative replies—even for a product that wasn't originally in its training data. 
+
+
 
 ## Let's Get Started!
 Now that you understand how RAG works, we'll guide you through creating the sample records for LumiAI and setting up the retriever and generator components. By the end of this tutorial, you'll have a working chatbot that can handle questions about LumiAI, showcasing the power of Retrieval-Augmented Generation in action.

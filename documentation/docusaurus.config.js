@@ -83,6 +83,7 @@ const config = {
         logo: {
           alt: "Big Hummingbird logo",
           src: "img/bhb.png",
+          href: "https://www.bighummingbird.com/"
         },
         items: [
           {
